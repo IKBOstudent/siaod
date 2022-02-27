@@ -9,7 +9,12 @@
 #include <iostream>
 using std::cin, std::cout, std::endl;
 
+struct Seq_index {
+    int start_i, end_i;
+};
 
 void mass_f1();
+void mass_f2();
+
 
 #endif //SIAOD_HEADER_H
