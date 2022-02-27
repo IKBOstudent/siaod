@@ -1,12 +1,23 @@
 #include "header.h"
 
+int n_input_static();
 void array_input_static(int *a, int n);
 void array_output_static(const int *a, int n);
-void array_push_front_static(int *a, int &n, int elem0);
 Seq_index array_find_seq_static(const int *a, int n);
+void array_push_front_seq_static(int *a, int &n, int elem0, int &start_index, int &end_index);
 void array_delete_seq_static(int *a, int &n, int start_index, int end_index);
 
-// ввод массива
+int n_input_static() {
+    int n;
+    cout << "Array size (<= 1000):\n";
+    cin >> n;
+    while (n > 1000 or n <= 0) {
+        cout << "Array size must be > 0 and <= 1000\n";
+        cin >> n;
+    }
+    return n;
+}
+
 void array_input_static(int *a, int n) {
     /* на вход: массив a и число элементов n
      * ввод массива
@@ -15,7 +26,6 @@ void array_input_static(int *a, int n) {
         cin >> a[i];
 }
 
-// вывод массива
 void array_output_static(const int *a, int n){
     /* на вход: массив a и число элементов n
      * выводит массив
@@ -24,18 +34,6 @@ void array_output_static(const int *a, int n){
     for (int i = 0; i < n; ++i)
         cout << a[i] << endl;
     cout << endl;
-}
-
-// вставка в начало
-void array_push_front_static(int *a, int &n, int elem0) {
-    /* на вход: массив a, число элементов n, число для вставки
-     * вставляет число в начало
-     */
-    for (int i = n; i >= 0; --i) {
-        a[i] = a[i-1];
-    }
-    a[0] = elem0;
-    ++n;
 }
 
 Seq_index array_find_seq_static(const int *a, int n) {
@@ -75,6 +73,22 @@ Seq_index array_find_seq_static(const int *a, int n) {
     return Seq_index{start_index, end_index};
 }
 
+void array_push_front_seq_static(int *a, int &n, int elem0, int &start_index, int &end_index) {
+    /* на вход: массив a, число элементов n, число для вставки, индексы подпоследовательности
+     * вставляет число перед началом подпоследовательности
+     */
+    if (n == 1000) {
+        cout << "Array size to big to push element\n";
+    } else {
+        for (int i = n; i > start_index; --i) {
+            a[i] = a[i - 1];
+        }
+        a[start_index] = elem0;
+        ++n;
+        ++start_index; ++end_index;
+    }
+}
+
 void array_delete_seq_static(int *a, int &n, int start_index, int end_index) {
     /* на вход: массив a, число элементов n, индексы подпоследовательности
      * удаляет подпоследовательность из массива
@@ -91,27 +105,24 @@ void array_delete_seq_static(int *a, int &n, int start_index, int end_index) {
 void mass_f1() {
     int a[1000];
 
-    // считывем массив размера n < 1000
-    int n;
-    cout << "Array size:\n";
-    cin >> n;
+    // считывем массив размера n <= 1000
+    int n = n_input_static();
 
     array_input_static(a, n);
-    // вывод массива
-    array_output_static(a, n);
-
-    int elem0;
-    cout << "Insert element:\n";
-    cin >> elem0;
-
-    // вставка в начало
-    array_push_front_static(a, n, elem0);
     // вывод массива
     array_output_static(a, n);
 
     // поиск подпоследовательности
     auto res = array_find_seq_static(a, n);
     cout << "Start: " << res.start_i << " Finish: " << res.end_i << endl;
+
+    int elem0;
+    cout << "\nInsert element:\n";
+    cin >> elem0;
+
+    array_push_front_seq_static(a, n, elem0, res.start_i, res.end_i);
+    // вывод массива
+    array_output_static(a, n);
 
     // удаление подпоследовательности
     array_delete_seq_static(a, n, res.start_i, res.end_i);

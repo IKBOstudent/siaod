@@ -1,7 +1,3 @@
-//
-// Created by maxpo on 25.02.2022.
-//
-
 #ifndef SIAOD_HEADER_H
 #define SIAOD_HEADER_H
 
@@ -15,6 +11,6 @@ struct Seq_index {
 
 void mass_f1();
 void mass_f2();
-
+void mass_f3();
 
 #endif //SIAOD_HEADER_H
