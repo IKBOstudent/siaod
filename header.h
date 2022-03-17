@@ -2,15 +2,27 @@
 #define SIAOD_HEADER_H
 
 #include <cstdio>
+#include <ctime>
 #include <iostream>
-using std::cin, std::cout, std::endl;
+#include <string>
+using namespace std;
 
 struct Seq_index {
     int start_i, end_i;
 };
 
-void mass_f1();
-void mass_f2();
-void mass_f3();
+struct Coord {
+    double x, y;
+};
+
+// для задания 1
+int dim1_static_f1();
+int dim1_dynamic_f2();
+int dim1_vector_f3();
+
+// для задания 2
+int dim2_static_f1();
+int dim2_dynamic_f2();
+int dim2_vector_f3();
 
 #endif //SIAOD_HEADER_H

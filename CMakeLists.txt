@@ -3,4 +3,6 @@ project(siaod)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(siaod main.cpp dim1static_arr.cpp header.h dim1dynamic_arr.cpp dim1vector_arr.cpp)
+add_executable(siaod main.cpp header.h
+        "READY CPP FILES/zad_1/dim1static_arr.cpp" "READY CPP FILES/zad_1/dim1dynamic_arr.cpp" "READY CPP FILES/zad_1/dim1vector_arr.cpp"
+        "READY CPP FILES/zad_2/dim2static_arr.cpp" "READY CPP FILES/zad_2/dim2dynamic_arr.cpp" "READY CPP FILES/zad_2/dim2vector_arr.cpp")

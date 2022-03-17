@@ -1,46 +1,52 @@
-#include "header.h"
+#include "../../header.h"
+#include <vector>
+using std::vector;
 
-int n_input_static();
-void array_input_static(int *a, int n);
-void array_output_static(const int *a, int n);
-Seq_index array_find_seq_static(const int *a, int n);
-void array_push_front_seq_static(int *a, int &n, int elem0, int &start_index, int &end_index);
-void array_delete_seq_static(int *a, int &n, int start_index, int end_index);
+int n_input_vector();
+vector<int> array_input_vector(int n);
+void array_output_vector(vector<int>& a);
+Seq_index array_find_seq_vector(vector<int>& a);
+void array_push_front_seq_vector(vector<int>& a, int elem0, int &start_index, int &end_index);
+void array_delete_seq_vector(vector<int>& a, int start_index, int end_index);
 
-int n_input_static() {
+int n_input_vector() {
     int n;
-    cout << "Array size (<= 1000):\n";
+    cout << "Array size:\n";
     cin >> n;
-    while (n > 1000 or n <= 0) {
-        cout << "Array size must be > 0 and <= 1000\n";
+    while (n <= 0) {
+        cout << "Array size must be > 0\n";
         cin >> n;
     }
     return n;
 }
 
-void array_input_static(int *a, int n) {
+vector<int> array_input_vector(int n) {
     /* на вход: массив a и число элементов n
      * ввод массива
      */
+    vector<int> a(n);
     for (int i = 0; i < n; ++i)
         cin >> a[i];
+    return a;
 }
 
-void array_output_static(const int *a, int n){
+void array_output_vector(vector<int>& a){
     /* на вход: массив a и число элементов n
      * выводит массив
      */
-    cout << "n = " << n << endl;
-    for (int i = 0; i < n; ++i)
-        cout << a[i] << endl;
+    cout << "n = " << a.size() << endl;
+    for (int i : a)
+        cout << i << endl;
     cout << endl;
 }
 
-Seq_index array_find_seq_static(const int *a, int n) {
+Seq_index array_find_seq_vector(vector<int>& a) {
     /* на вход: массив a, число элементов n
      * Находит индексы (начальный и конечный) самой длинной,
      * упорядоченной по возрастанию подпоследовательности.
      */
+    int n = a.size();
+
     int current_start_index = 0;
     bool flag_start = false;
 
@@ -70,63 +76,56 @@ Seq_index array_find_seq_static(const int *a, int n) {
             flag_start = false;
         }
     }
+
     return Seq_index{start_index, end_index};
 }
 
-void array_push_front_seq_static(int *a, int &n, int elem0, int &start_index, int &end_index) {
+void array_push_front_seq_vector(vector<int>& a, int elem0, int &start_index, int &end_index) {
     /* на вход: массив a, число элементов n, число для вставки, индексы подпоследовательности
      * вставляет число перед началом подпоследовательности
      */
-    if (n == 1000) {
-        cout << "Array size to big to push element\n";
-    } else {
-        for (int i = n; i > start_index; --i) {
-            a[i] = a[i - 1];
-        }
-        a[start_index] = elem0;
-        ++n;
-        ++start_index; ++end_index;
-    }
+    a.insert(a.begin() + start_index, elem0);
+    ++start_index; ++end_index;
 }
 
-void array_delete_seq_static(int *a, int &n, int start_index, int end_index) {
+void array_delete_seq_vector(vector<int>& a, int start_index, int end_index) {
     /* на вход: массив a, число элементов n, индексы подпоследовательности
      * удаляет подпоследовательность из массива
      */
-    if (end_index == n-1) {
-        n = start_index;
-    } else {
+    int n = a.size();
+
+    if (end_index == n-1)
+        a.resize(start_index);
+    else {
         for (int i = 0; i < n - end_index - 1; ++i) {
             a[start_index + i] = a[end_index + i + 1];
-        } n = start_index + (n - end_index - 1);
+        } a.resize(start_index + (n - end_index - 1));
     }
 }
 
-void mass_f1() {
-    int a[1000];
+int dim1_vector_f3() {
+    int n = n_input_vector();
 
-    // считывем массив размера n <= 1000
-    int n = n_input_static();
-
-    array_input_static(a, n);
+    vector<int> a = array_input_vector(n);
     // вывод массива
-    array_output_static(a, n);
+    array_output_vector(a);
 
     // поиск подпоследовательности
-    auto res = array_find_seq_static(a, n);
+    auto res = array_find_seq_vector(a);
     cout << "Start: " << res.start_i << " Finish: " << res.end_i << endl;
 
     int elem0;
     cout << "\nInsert element:\n";
     cin >> elem0;
 
-    array_push_front_seq_static(a, n, elem0, res.start_i, res.end_i);
+    array_push_front_seq_vector(a, elem0, res.start_i, res.end_i);
     // вывод массива
-    array_output_static(a, n);
+    array_output_vector(a);
 
     // удаление подпоследовательности
-    array_delete_seq_static(a, n, res.start_i, res.end_i);
+    array_delete_seq_vector(a, res.start_i, res.end_i);
     // вывод массива
-    array_output_static(a, n);
+    array_output_vector(a);
+    return 0;
 }
 
