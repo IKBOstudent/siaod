@@ -85,7 +85,7 @@ bool dim2_one_side_vector(vector<vector<double>>& a, int n) {
                 bool res_intersect = find_intersection(main_a, b, c, d, inter);
 
                 if (res_intersect) {
-                    bool res_inside = point_inside_segment(main_a, b, inter);
+                    bool res_inside = point_inside_segment(c, d, inter);
                     if (res_inside) {
                         all_on_one_side = false;
                         break;
@@ -135,22 +135,23 @@ bool find_intersection(Coord a, Coord b, Coord c, Coord d, Coord& inter) {
     return true;
 }
 
-bool point_inside_segment(Coord a, Coord b, Coord m) {
-    double dist = sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
-    double dist_a_m = sqrt(pow(m.x - a.x, 2) + pow(m.y - a.y, 2));
-    double dist_b_m = sqrt(pow(m.x - b.x, 2) + pow(m.y - b.y, 2));
+bool point_inside_segment(Coord c, Coord d, Coord m) {
+    double dist = sqrt(pow(c.x - d.x, 2) + pow(c.y - d.y, 2));
+    double dist_a_m = sqrt(pow(m.x - c.x, 2) + pow(m.y - c.y, 2));
+    double dist_b_m = sqrt(pow(m.x - d.x, 2) + pow(m.y - d.y, 2));
 
-    if (fabs(dist - (dist_a_m + dist_b_m)) < 0.0001)
+    if (fabs(dist - (dist_a_m + dist_b_m)) < 0.0001) {
         return true;
-    else
+    } else {
         return false;
+    }
 }
 
 
 
 int dim2_vector_f3() {
     srand(time(0));
-    int n = 15;
+    int n = 4;
     vector<vector<double>> a(n, vector<double>(2, 0));
 
     string ans;
