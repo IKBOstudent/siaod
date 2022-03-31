@@ -25,4 +25,8 @@ int dim2_static_f1();
 int dim2_dynamic_f2();
 int dim2_vector_f3();
 
+// для задания 3
+int c_strings_f1();
+int cpp_strings_f2();
+
 #endif //SIAOD_HEADER_H
