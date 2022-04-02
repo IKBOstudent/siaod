@@ -29,4 +29,9 @@ int dim2_vector_f3();
 int c_strings_f1();
 int cpp_strings_f2();
 
+// для задания 4
+int table_static_f1();
+int table_dynamic_f2();
+int table_vector_f3();
+
 #endif //SIAOD_HEADER_H
