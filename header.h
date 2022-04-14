@@ -34,4 +34,7 @@ int table_static_f1();
 int table_dynamic_f2();
 int table_vector_f3();
 
+// для задания 5
+int linked_list_f1();
+
 #endif //SIAOD_HEADER_H
