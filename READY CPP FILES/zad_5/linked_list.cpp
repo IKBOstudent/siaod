@@ -7,6 +7,7 @@ struct TNode {
     TNode(short val) : Val(val), Next(nullptr) {}
 };
 
+
 struct TList {
     TNode *Head;
 

@@ -37,4 +37,8 @@ int table_vector_f3();
 // для задания 5
 int linked_list_f1();
 
+// для задания 6
+int recursion_combs_f1();
+int recursion_list_f2();
+
 #endif //SIAOD_HEADER_H

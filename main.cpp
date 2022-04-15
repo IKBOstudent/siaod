@@ -43,9 +43,18 @@ int main(){
 //    res = table_vector_f3();
 //    if (res != 0) return res;
 
+
     // модуль задачи односвязный список
-    res = linked_list_f1();
-    if (res != 0) return res;
+//    res = linked_list_f1();
+//    if (res != 0) return res;
+
+
+    // модуль задачи односвязный список
+//    res = recursion_combs_f1();
+//    if (res != 0) return res;
+
+//    res = recursion_list_f2();
+//    if (res != 0) return res;
 
 
     return 0;
