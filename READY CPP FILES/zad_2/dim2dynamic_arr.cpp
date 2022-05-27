@@ -109,13 +109,13 @@ int pr_hod_gauss_dynamic(double** a, int n) {
         }
     }
 
-    cout << endl;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < 2*n; ++j) {
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
+//    cout << endl;
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < 2*n; ++j) {
+//            cout << a[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
     return 0;
 }
 
@@ -145,6 +145,7 @@ int dim2_dynamic_f2() {
     double** a;
 
     int n, m;
+	cout << "Enter n, m:\n";
     cin >> n;
     if (n <= 0) {
         cout << "Invalid n\n";
@@ -169,8 +170,8 @@ int dim2_dynamic_f2() {
     else
         dim2_array_input_dynamic_random(a, n, m);
 
-    // вывод матрицы
-    dim2_array_output_dynamic(a, n, m);
+//    // вывод матрицы
+//    dim2_array_output_dynamic(a, n, m);
 
     // нахождение обратной матрицы методом Гаусса
     if (n == m) {

@@ -151,7 +151,7 @@ bool point_inside_segment(Coord c, Coord d, Coord m) {
 
 int dim2_vector_f3() {
     srand(time(0));
-    int n = 4;
+    int n = 15;
     vector<vector<double>> a(n, vector<double>(2, 0));
 
     string ans;

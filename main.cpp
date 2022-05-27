@@ -17,10 +17,10 @@ int main(){
     // модули для задачи на двумерный массив
 //    res = dim2_static_f1();
 //    if (res != 0) return res;
-//
+
 //    res = dim2_dynamic_f2();
 //    if (res != 0) return res;
-//
+
 //    res = dim2_vector_f3();
 //    if (res != 0) return res;
 
@@ -49,13 +49,38 @@ int main(){
 //    if (res != 0) return res;
 
 
-    // модуль задачи односвязный список
+//     модуль задачи односвязный список
 //    res = recursion_combs_f1();
 //    if (res != 0) return res;
-
+//
 //    res = recursion_list_f2();
 //    if (res != 0) return res;
 
+
+//	   модуль задачи калькулятор
+//	  res = calc_f1();
+//	  if (res != 0) return res;
+
+
+//	   модуль задачи сортировки
+//	  res = insert_sort_f1();
+//	  if (res != 0) return res;
+//
+//	  res = shaker_sort_f2();
+//	  if (res != 0) return res;
+//
+//	  res = stooge_sort_f3();
+//	  if (res != 0) return res;
+
+
+//	   модуль задачи поиска в таблице
+//	  res = search1_f1();
+//	  if (res != 0) return res;
+
+
+//     модуль задачи поиска в строке
+    res = str_search_f1();
+    if (res != 0) return res;
 
     return 0;
 }

@@ -1,4 +1,7 @@
 #include "../../header.h"
+#include "string.h"
+#include "stdlib.h"
+
 
 void cfind_min_dist(const char *);
 // находит минимальное расстояние между парой слов
@@ -75,8 +78,12 @@ void coutput_pairs(int min_dist, const char * a) {
 }
 
 int c_strings_f1() {
-    const char * a = "aa, cc dd,, asdf,    , ff, ff aa ff aa ff";
-    cfind_min_dist(a);
+//    const char * a = "aa, cc dd,, asdf,    , ff, ff aa ff aa ff";
+    char a[1024];
+
+	gets(a);
+	cout << "min dist:\n";
+	cfind_min_dist(a);
     cout << endl;
     cout << endl;
 

@@ -5,6 +5,9 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <chrono>
+
 using namespace std;
 
 struct Seq_index {
@@ -40,5 +43,20 @@ int linked_list_f1();
 // для задания 6
 int recursion_combs_f1();
 int recursion_list_f2();
+
+// для задания 7
+int calc_f1();
+
+// для задания 8
+int insert_sort_f1();
+int shaker_sort_f2();
+int stooge_sort_f3();
+
+// для задания 9
+int search1_f1();
+int search2_f2();
+
+// для задания 10
+int str_search_f1();
 
 #endif //SIAOD_HEADER_H

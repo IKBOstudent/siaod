@@ -152,6 +152,7 @@ void del_all(TList& list, short x) {
     TNode *prev = list.Head;
     TNode *p = list.Head->Next;
 
+
     while (p) {
         if (p->Val == x) {
             prev->Next = p->Next;
@@ -172,24 +173,27 @@ int linked_list_f1() {
     for (short i = 0; i < 7; ++i)
         list.Push(i);
 
+//    list.Print();
+
+//    list.EmplaceBack(3);
+
     list.Print();
 
-    list.EmplaceBack(3);
-
-    list.Print();
-
-    TList *ans = find_sequence(list, 6, 3);
+	cout << "Searching for subsequence from 6 to 3\n";
+	TList *ans = find_sequence(list, 6, 3);
     if (ans) ans->Print();
-    list.Print();
+
+//    list.Print();
 
     del_all(list, 3);
+	cout << "After deleting\n";
     list.Print();
 
     list.Insert(1, 11);
-    list.Print();
+	cout << "After insert\n";
+	list.Print();
 
-    list.Insert(32, 222);
-    list.Print();
+
 
     return 0;
 }

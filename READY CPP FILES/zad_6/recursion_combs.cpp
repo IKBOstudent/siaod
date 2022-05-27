@@ -12,6 +12,8 @@ int combs(int m, int n) {
 
 int recursion_combs_f1() {
 
-    cout << combs(7, 11);
+	cout << "combinations of 3 from 5:\n";
+    cout << combs(3, 5) << endl << endl;
+
     return 0;
 }

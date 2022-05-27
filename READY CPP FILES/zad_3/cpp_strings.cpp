@@ -66,8 +66,11 @@ void cppoutput_pairs(int min_dist, string& a) {
 }
 
 int cpp_strings_f2() {
-    string a = "aa, cc dd,, asdf,    , ff, ff aa ff aa ff";
-    cppfind_min_dist(a);
+//    string a = "aa, cc dd,, asdf,    , ff, ff aa ff aa ff";
+	string a;
+	getline(cin, a);
+	cout << "min dist:\n";
+	cppfind_min_dist(a);
     cout << endl;
 
     return 0;

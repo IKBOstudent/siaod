@@ -91,8 +91,10 @@ int recursion_list_f2() {
         list.Push(v);
     }
 
+	cout << "list:\n";
     list.Print();
 
+	cout << "list with negative elements first\n";
     list.PrintCustom(list.Head);
 
     return 0;

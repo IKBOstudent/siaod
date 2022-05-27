@@ -115,13 +115,13 @@ int pr_hod_gauss_static(double a[][Cols], int n) {
         }
     }
 
-    cout << endl;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < 2*n; ++j) {
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
+//    cout << endl;
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < 2*n; ++j) {
+//            cout << a[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
     return 0;
 }
 
@@ -171,9 +171,9 @@ int dim2_static_f1() {
         dim2_array_input_static_custom(a, n, m);
     else
         dim2_array_input_static_random(a, n, m);
-
-    // вывод матрицы
-    dim2_array_output_static(a, n, m);
+//
+//    // вывод матрицы
+//    dim2_array_output_static(a, n, m);
 
     // нахождение обратной матрицы методом Гаусса
     if (n == m or 2*n > Cols) {

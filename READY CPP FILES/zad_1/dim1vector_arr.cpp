@@ -36,7 +36,7 @@ void array_output_vector(vector<int>& a){
      */
     cout << "n = " << a.size() << endl;
     for (int i : a)
-        cout << i << endl;
+        cout << i << " ";
     cout << endl;
 }
 
