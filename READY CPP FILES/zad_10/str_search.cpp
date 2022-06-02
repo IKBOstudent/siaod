@@ -1,5 +1,6 @@
 #include "../../header.h"
 
+
 #define d 256
 
 int search(string pattern, string txt, int q) {
@@ -52,7 +53,6 @@ int search(string pattern, string txt, int q) {
 	return count;
 }
 
-
 int str_search_f1() {
 	string txt = "AB CA BCA ABC ABBC ABBABAB";
 	cout << "Text is:\n";
@@ -82,6 +82,7 @@ int str_search_f1() {
 		cout << patterns[i] << ": ";
 		cout << count[i] << endl;
 	}
+
 
 	return 0;
 }

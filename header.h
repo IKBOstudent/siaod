@@ -58,5 +58,6 @@ int search2_f2();
 
 // для задания 10
 int str_search_f1();
+int str_match_f2();
 
 #endif //SIAOD_HEADER_H

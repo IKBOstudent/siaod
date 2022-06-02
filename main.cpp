@@ -79,7 +79,10 @@ int main(){
 
 
 //     модуль задачи поиска в строке
-    res = str_search_f1();
+//    res = str_search_f1();
+//    if (res != 0) return res;
+
+    res = str_match_f2();
     if (res != 0) return res;
 
     return 0;
